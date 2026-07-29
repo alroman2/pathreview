@@ -72,9 +72,11 @@ async def health_check(db=Depends(get_db)):
         health_status["dependencies"]["vector_db"] = "unhealthy"
         health_status["status"] = "unhealthy"
 
-    # Count safety events in last hour (placeholder)
+    # Count safety events in last hour.
+    # BUG (Issue #68): this is hardcoded to 0 and never queries
+    # safety.monitoring.SafetyMonitor, so real safety activity stored in Redis
+    # is not surfaced. See tests/unit/test_health.py for a failing repro.
     try:
-        # This would be populated by actual safety event logging
         health_status["safety_events_last_hour"] = 0
     except Exception as exc:
         log.error("safety_events_check_failed", error=str(exc))
