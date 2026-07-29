@@ -101,3 +101,17 @@ Some issues say "blocked by #X" or reference another issue that needs to be reso
 
 - [x] This issue has no open blockers or dependencies on other unresolved issues.
 
+## Week 8 - Reproduction & solution planning
+
+**Reproduction commit link:** <https://github.com/alroman2/pathreview/commit/afbd64f681446d1868e72e756bc48b9f5c88e1b9>
+
+**Reproduction summary:**
+Added a failing unit test (`tests/unit/test_health.py`) that stubs `SafetyMonitor.get_event_count` to report 7 recent events and asserts `/health` surfaces them. The endpoint hardcodes `safety_events_last_hour` to `0` (`api/routes/health.py:78`) instead of consulting `SafetyMonitor`, so the test fails with `assert 0 == 7`, confirming the issue.
+
+**PLAN.md link:** <https://github.com/alroman2/pathreview/blob/fix/68-health-check-safety-event/docs/PLAN.md>
+
+**Walkthrough video (recommended):** _(not recorded)_
+
+**Blockers or open questions:**
+`SafetyMonitor.get_event_count` does not enforce a time window (counts rely on a 24h Redis TTL), so "last hour" will be approximate unless time-bucketed keys are added later. `Settings` lacks `redis_host`/`redis_port`, so the fix should construct the Redis client from `settings.redis_url`.
+
