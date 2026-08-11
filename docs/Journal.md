@@ -147,3 +147,33 @@ All 9 new/updated tests pass, and the changed files are clean under `ruff`, `bla
 
 **Draft PR feedback received from:** none
 
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [x] No — still awaiting review
+
+**Summary of feedback:**
+No review/feedback came in
+
+**How you responded:**
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+I would say getting familiar was harder than expected, it took some time to understand the full contribution process for this codebase as there were many unrelated bugs, or failing tests from other issue assignments. Of course, these are purposely here but it added some overhead when running my own tests.
+
+**What did you learn about working in a large codebase?**
+I would say it's like having flatmates vs living alone. When you live alone you have liberty for how the home looks and operates. When it is a shared space you should communicate, be respectful, maintain organization and cleanliness, etc. Similarly working on a large/shared codebase requires the same consideration as many people are working on it, and thus, should reflect the voices of all those involved.
+
+**How did AI tools help — and where did they fall short?**
+Huge help in Q&A for an unfamiliar codebase, test writing, and code implementation. It fell short in making decisions. For example, sometimes the ai could make decisions that might not follow existing standard if the plan was not detailed enough.
+
+**What would you do differently if you started over?**
+The fork and branch were long lived over the 4 weeks which would typically be too long. Keeping a branch alive this long might introduce a messy history, and complications with upstream updates (especially since i opened the pr week 1). I would try to wrap up the bug fix quicker and seek to merge smaller changes more frequently.
+
+**What are you most proud of from this module?**
+Being able to effectively leverage AI to speed up the development lifecycle.
+
